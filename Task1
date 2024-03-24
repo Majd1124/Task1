@@ -1,0 +1,44 @@
+import java.util.*;
+public class Task1 {
+
+	public static void main(String[] args) {
+		Scanner scan=new Scanner(System.in);
+		Random rand=new Random();
+		
+		int a=rand.nextInt(101);
+		System.out.println(a);
+		System.out.println("A random number is generated between 0 and 100 inclusive\nWhat's your guess?");
+		int b;
+		int attempts=10;
+		for(int i=0;i<attempts;i++)
+		{
+			b=scan.nextInt();
+			if(a==b) {
+				System.out.printf("Congratulations! You took %d attempts to guess it\n",i+1);
+				break;
+			}
+			else
+				if(attempts-i-1==0)
+				{
+					System.out.println("Sorry, you've used all your attempts. Better luck next time!");
+					break;
+				}
+				else
+					if(a-b>50)
+						System.out.printf("Your guess is too low, You still have %d attempts, try again!\n",attempts-i-1);
+					else
+						if(a-b>0 && a-b<=50)
+							System.out.printf("Your guess is low, You still have %d attempts, try again!\n",attempts-i-1);
+						else
+							if(a-b< -50)
+								System.out.printf("Your guess is too high, You still have %d attempts, try again!\n",attempts-i-1);
+							else
+								if(a-b<0 && a-b>=-50)
+									System.out.printf("Your guess is high, You still have %d attempts, try again!\n",attempts-i-1);
+						
+		}
+		
+	
+
+}
+}
